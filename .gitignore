@@ -396,5 +396,8 @@ FodyWeavers.xsd
 
 # JetBrains Rider
 *.sln.iml
-/src/Azure.OpenAI.ChargebackProxy/appsettings.Development.json
-/src/Azure.OpenAI.ChargebackProxy.Client/appsettings.Development.json
+
+#custom
+src/python/.env
+src/dotnet/Azure.OpenAI.ChargebackProxy.Client/appsettings.Development.json
+src/dotnet/Azure.OpenAI.ChargebackProxy/appsettings.Development.json
