@@ -4,6 +4,8 @@ using System.Reflection.Metadata.Ecma335;
 
 var builder = WebApplication.CreateBuilder(args);
 
+builder.AddServiceDefaults();
+
 builder.Services.AddSingleton<IManagedIdentityService, ManagedIdentityService>();
 
 var managedIdentityService = builder.Services.BuildServiceProvider().GetService<IManagedIdentityService>();
@@ -38,6 +40,8 @@ builder.Services.AddReverseProxy()
 
 
 var app = builder.Build();
+
+app.MapDefaultEndpoints();
 app.MapReverseProxy();
 app.MapGet("/health", () => { return "Alive"; });
 app.Run();

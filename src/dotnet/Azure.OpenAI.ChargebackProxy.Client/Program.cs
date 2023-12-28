@@ -16,16 +16,14 @@ OpenAIClient client = new OpenAIClient(
     );
 
 
-var deploymentName = "gpt-35-turbo";
-var chatMessages = new List<ChatMessage>();
+var deploymentName = "gpt-4";
+var chatMessages = new List<ChatRequestMessage>();
 
-var systemChatMessage = new ChatMessage();
-systemChatMessage.Content = "You are a helpful AI Assistant";
-systemChatMessage.Role = "system";
+var systemChatMessage = new ChatRequestSystemMessage("You are a helpful AI Assistant");
 
 
-var userChatMessage = new ChatMessage();
-userChatMessage.Content = "When was Microsoft Founded and what info can you give me on the founders in a maximum of 100 words";
+
+var userChatMessage = new ChatRequestUserMessage("When was Microsoft Founded?");
 userChatMessage.Role = "user";
 
 
@@ -68,12 +66,13 @@ Console.WriteLine($"Using endpoint: {proxyEndpoint}");
 
 //embedding
 string embeddingDeploymentName = "text-embedding-ada-002";
-List<string> embeddingText = new List<string>();
-embeddingText.Add("When was Microsoft Founded?");
+string embeddingText = "When was Microsoft Founded?";
 
-var embeddingsOptions = new EmbeddingsOptions();
-embeddingsOptions.DeploymentName = embeddingDeploymentName;
-embeddingsOptions.Input = embeddingText;
+EmbeddingsOptions embeddingsOptions = new()
+{
+    DeploymentName = embeddingDeploymentName,
+    Input = { embeddingText }
+};
 var embeddings = await client.GetEmbeddingsAsync(embeddingsOptions);
 Console.WriteLine("Get Embeddings Result");
 foreach (float item in embeddings.Value.Data[0].Embedding.ToArray())
