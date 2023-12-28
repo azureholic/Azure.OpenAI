@@ -16,14 +16,14 @@ OpenAIClient client = new OpenAIClient(
     );
 
 
-var deploymentName = "gpt-35-turbo";
+var deploymentName = "gpt-4";
 var chatMessages = new List<ChatRequestMessage>();
 
 var systemChatMessage = new ChatRequestSystemMessage("You are a helpful AI Assistant");
 
 
 
-var userChatMessage = new ChatRequestUserMessage("When was Microsoft Founded and what info can you give me on the founders in a maximum of 100 words");
+var userChatMessage = new ChatRequestUserMessage("When was Microsoft Founded?");
 userChatMessage.Role = "user";
 
 

@@ -7,6 +7,10 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Azure.OpenAI.ChargebackProx
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Azure.OpenAI.ChargebackProxy.Client", "Azure.OpenAI.ChargebackProxy.Client\Azure.OpenAI.ChargebackProxy.Client.csproj", "{89EB7777-327F-406C-8AAE-16185B8ECE6F}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Azure.OpenAI.ChargebackProxy.AppHost", "Azure.OpenAI.ChargebackProxy.AppHost\Azure.OpenAI.ChargebackProxy.AppHost.csproj", "{5FC4127C-CAF4-4E8B-BE63-ABE910448A58}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Azure.OpenAI.ChargebackProxy.ServiceDefaults", "Azure.OpenAI.ChargebackProxy.ServiceDefaults\Azure.OpenAI.ChargebackProxy.ServiceDefaults.csproj", "{754B4748-8DA3-4A9B-A7E0-0168D38AE0A5}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -21,6 +25,14 @@ Global
 		{89EB7777-327F-406C-8AAE-16185B8ECE6F}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{89EB7777-327F-406C-8AAE-16185B8ECE6F}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{89EB7777-327F-406C-8AAE-16185B8ECE6F}.Release|Any CPU.Build.0 = Release|Any CPU
+		{5FC4127C-CAF4-4E8B-BE63-ABE910448A58}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{5FC4127C-CAF4-4E8B-BE63-ABE910448A58}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{5FC4127C-CAF4-4E8B-BE63-ABE910448A58}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{5FC4127C-CAF4-4E8B-BE63-ABE910448A58}.Release|Any CPU.Build.0 = Release|Any CPU
+		{754B4748-8DA3-4A9B-A7E0-0168D38AE0A5}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{754B4748-8DA3-4A9B-A7E0-0168D38AE0A5}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{754B4748-8DA3-4A9B-A7E0-0168D38AE0A5}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{754B4748-8DA3-4A9B-A7E0-0168D38AE0A5}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
