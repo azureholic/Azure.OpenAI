@@ -14,9 +14,11 @@ namespace Azure.OpenAI.ChargebackProxy.ReverseProxy
                 Match = new RouteMatch()
                 {
                     Path = "openai/{**catch-all}"
-                }
+                },
+                Order = 0
             };
 
+            
             List<RouteConfig> routes = new List<RouteConfig> { routeConfig };
                       
 
