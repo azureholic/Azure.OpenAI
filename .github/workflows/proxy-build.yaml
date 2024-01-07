@@ -43,6 +43,6 @@ jobs:
         file: ${{ env.working-directory }}/${{ env.main-project-directory}}/Dockerfile
         push: true
         tags: ${{ steps.lowercaseImageTag.outputs.lowercase }}
-        labels: ${{ steps.meta.outputs.labels }}
+        #labels: ${{ steps.meta.outputs.labels }}
 
   
