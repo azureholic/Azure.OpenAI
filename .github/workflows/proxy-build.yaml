@@ -4,7 +4,7 @@ on:
 
 env:
   REGISTRY: ghcr.io
-  IMAGE_NAME: ${{ github.repository }}
+  IMAGE_NAME: ${{ github.repository }}/ChargebackProxy
   working-directory: ./src/dotnet
   main-project-directory: "Azure.OpenAI.ChargebackProxy"
  
