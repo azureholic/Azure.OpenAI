@@ -34,8 +34,8 @@ ChatCompletionsOptions completionOptions = new ChatCompletionsOptions(deployment
 Console.WriteLine($"Using endpoint: {proxyEndpoint}");
 
 //run the loop to hit rate-limiter
-//for (int i = 0; i < 50; i++)
-//{
+for (int i = 0; i < 50; i++)
+{
    
     Console.WriteLine("Get answer to question: " + userChatMessage.Content);
 
@@ -60,7 +60,7 @@ Console.WriteLine($"Using endpoint: {proxyEndpoint}");
     }
     Console.WriteLine();
 
-//}
+}
 //end loop
 
 

@@ -1,6 +1,8 @@
 using Azure.OpenAI.ChargebackProxy.ReverseProxy;
 using Azure.OpenAI.ChargebackProxy.Services;
 using System.Reflection.Metadata.Ecma335;
+using Yarp.ReverseProxy.Health;
+using Yarp.ReverseProxy.Model;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -30,7 +32,6 @@ var clusters = Clusters.GetClusterConfig(config);
 
 builder.Services.AddReverseProxy()
     .LoadFromMemory(routes, clusters)
-    //.LoadFromConfig(builder.Configuration.GetSection("ReverseProxy"))
     .ConfigureHttpClient((sp, options) =>
     {
         //decompress the Response so we can read it
@@ -39,10 +40,16 @@ builder.Services.AddReverseProxy()
     .AddTransforms<OpenAIChargebackTransformProvider>();
 
 
+
 var app = builder.Build();
 
 app.MapDefaultEndpoints();
-app.MapReverseProxy();
+
+app.MapReverseProxy(proxyPipeline =>
+{
+    proxyPipeline.UseMiddleware<RetryMiddleware>();
+    proxyPipeline.UsePassiveHealthChecks();
+});
 app.MapGet("/health", () => { return "Alive"; });
 app.Run();
 
