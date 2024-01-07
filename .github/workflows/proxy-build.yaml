@@ -30,7 +30,8 @@ jobs:
       with:
         images: ${{ env.REGISTRY }}/${{ env.IMAGE_NAME }}
 
-    - name: lowercaseImageTag
+    - name: Create a Lowercase Image Tag
+      id: lowercase
       uses: ASzc/change-string-case-action@v6
       with:
         string: ${{ env.REGISTRY }}/${{ env.IMAGE_NAME }}:latest
@@ -42,7 +43,7 @@ jobs:
         context: ${{ env.working-directory }}
         file: ${{ env.working-directory }}/${{ env.main-project-directory}}/Dockerfile
         push: true
-        tags: ${{ steps.lowercaseImageTag.outputs.lowercase }}
+        tags: ${{ steps.lowercase.outputs.lowercase }}
         #labels: ${{ steps.meta.outputs.labels }}
 
   
