@@ -5,7 +5,8 @@ on:
 env:
   REGISTRY: ghcr.io
   IMAGE_NAME: ${{ github.repository }}
-  working-directory: ./src/dotnet/Azure.OpenAI.ChargebackProxy
+  working-directory: ./src/dotnet
+  main-project-directory: "Azure.OpenAI.ChargebackProxy"
  
 jobs: 
   build-and-deploy:
@@ -32,6 +33,7 @@ jobs:
       uses: docker/build-push-action@f2a1d5e99d037542a71f64918e516c093c6f3fc4
       with:
         context: ${{ env.working-directory }}
+        file: ${{ env.working-directory }}/${{ env.main-project-directory}}/Dockerfile
         push: true
         tags: ${{ steps.meta.outputs.tags }}
         labels: ${{ steps.meta.outputs.labels }}
