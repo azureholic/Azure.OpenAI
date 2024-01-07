@@ -42,7 +42,7 @@ jobs:
         context: ${{ env.working-directory }}
         file: ${{ env.working-directory }}/${{ env.main-project-directory}}/Dockerfile
         push: true
-        tags: ${{ steps.meta.outputs.tags }}, ${{ steps.lowercaseImageTag.outputs.lowercase }}
+        tags: ${{ steps.lowercaseImageTag.outputs.lowercase }}
         labels: ${{ steps.meta.outputs.labels }}
 
   
